@@ -1,0 +1,29 @@
+{
+  "name": "iluvatar",
+  "version": "1.0.0",
+  "description": "Bot Discord TDM",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node .",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elrohir-bfme/Iluvatar.git"
+  },
+  "keywords": [
+    "bot",
+    "discord"
+  ],
+  "author": "Elrohir",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elrohir-bfme/Iluvatar/issues"
+  },
+  "homepage": "https://github.com/elrohir-bfme/Iluvatar#readme",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "eslint": "^7.20.0"
+  }
+}
