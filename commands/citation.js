@@ -1,0 +1,45 @@
+module.exports = {
+	name: 'citation',
+	description: 'Citation LOTR',
+    cooldown: 5,
+	execute(message) {
+        message.delete({ timeout: 100 });
+        const citation = [
+            "Vous ne passerez pas !",
+            "Une mort certaine. Une faible chance de succès. Mais qu’attendons-nous ?",
+            "Ça ne compte quand même que pour un !",
+            "Stupide hobbit joufflu !",
+            "Je préfère partager une vie de mortelle avec vous que de devoir affronter tous les âges de ce monde toute seule.",
+            "Je suis un serviteur du Feu Secret, détenteur de la flamme d’Anor. Le feu sombre ne vous servira à rien, flamme d’Udûn. Repartez dans l’ombre ! Vous ne passerez pas !",
+            "Il est fort dangereux Frodon de sortir de chez soi, on prend la route et si on ne regarde pas où l’on met les pieds on ne sait pas jusque où cela peut nous mener.",
+            "Et bien, c’est plus gai dans un cimetière…",
+            "Fuyez, pauvres fous !",
+            "Beaucoup de choses existaient jadis mais aucuns de ceux qui vivent aujourd’hui ne s’en souviennent.",
+            "Allons Gaiement en chantant en chantant",
+            "C'est de la belle maçonnerie",
+            "Les Phalanges feront régner l'ordre",
+	    "Soumettez vous à Hoplite, le seigneur Démolisseur",
+            "L'âge des hommes est terminéee, Le monde des Orcs est arrivéeee",
+            "debout gros tas",
+            "reprenez vos outils",
+            "Petit homme aurait du rester dans cité blanche, Rogash montrer la force des trolls",
+            "dégage crétin",
+            "préparez le prochain tir",
+            "Pour Frodon !",
+            "Le rohan nous a abandonné.... Théoden m'a trahi.....",
+            "les feux d'alarmes, les feux d'alarmes du Gondor sont allumés",
+            "Nombreux sont les vivants qui mériteraient la mort. Et les morts qui mériteraient la vie.",
+            "Remuez vous bandes de larves",
+            "Les tire-au-flanc seront punis!",
+            "Je sers la couronne de fer",
+            "Au delà, des montagnes embrumées",
+            "Si par ma vie ou par ma mort je dois vous protéger, mon épée est votre, et mon arc est votre , et ma HACHE!",
+            "Gandalf, le mordor c'est à droite ou à gauche?, humm à gauche frodon",
+            "Mensonge ! <:theodenLUL:759764968043577354>",
+            "Écoutez mes paroles <:Grimawhut:778877460967194654>",
+            "Partez en guerre, pillez leurs terres et brûlez tous leurs villages",
+            "Je n'avais pas prévu ça <:Grimawhut:778877460967194654>"
+        ]
+        message.channel.send(citation[Math.floor(Math.random() * citation.length)])
+	},
+};
