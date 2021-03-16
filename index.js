@@ -1,5 +1,4 @@
 const fs = require('fs');
-const { prefix, token } = require('./config.json')
 const fetch = require('node-fetch');
 
 // require the discord.js module
@@ -20,7 +19,7 @@ client.once('ready', () => {
 });
 
 // login to Discord with your app's token
-client.login(token);
+client.login(process.env.TOKEN);
 
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
