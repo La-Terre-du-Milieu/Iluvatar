@@ -35,7 +35,5 @@ module.exports = {
               break;
           }
           message.reply(phrase)
-          
-          console.log()
 	},
 };
