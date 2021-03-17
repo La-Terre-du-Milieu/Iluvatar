@@ -32,38 +32,7 @@ module.exports = {
                     json[region].players.map(v => {
                         console.log(v.faction)
                         players.push(v.name)
-                        // switch (v.faction) {
-                        //     case 1:
-                        //         elfe.push(v.name)
-                        //     break;
-                        //     case 2:
-                        //         rohan.push(v.name)
-                        //     break;
-                        //     case 3:
-                        //         gondor.push(v.name)
-                        //     break;
-                        //     case 4:
-                        //         nain.push(v.name)
-                        //     break;
-                        //     case 5:
-                        //         mordor.push(v.name)
-                        //     break;
-                        //     case 6:
-                        //         console.log("jiedekodkeodeokdkeokdeok")
-                        //         isengard.push(v.name)
-                        //     break;
-                        //     case 7:
-                        //         gobelin.push(v.name)
-                        //     break;
-                        //     case 8:
-                        //         angmar.push(v.name)
-                        //     break;
-                        //     default:
-                        //         break;
-                        // }
                     })
-                    // console.log(players)
-                    // message.channel.send(players)
 
                     if (players.length === 0) {
                         players = 0

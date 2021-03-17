@@ -1,5 +1,5 @@
 const fs = require('fs');
-const fetch = require('node-fetch');
+require('dotenv').config()
 
 // require the discord.js module
 const Discord = require('discord.js');
@@ -12,10 +12,7 @@ const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('
 // this event will only trigger one time after logging in
 client.once('ready', () => {
 	console.log('Ready!');
-    // client.user.setPresence({ activity: { name: 'REGARDE LA TERRE DU MILIEU' }, status: 'idle' });
     client.user.setActivity('LA TERRE DU MILIEU', { type: 'LISTENING' });
-    // const channel = client.channels.cache.get('646687718491029505');
-    // channel.send('AU COMMENCEMENT DES JOURS');
 });
 
 // login to Discord with your app's token

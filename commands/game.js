@@ -28,6 +28,9 @@ module.exports = {
                 img = "https://laterredumilieu.fr/images/rotwk_twitter.jpg";
                 thumbnail = "https://cdn.discordapp.com/attachments/647478928427974679/816674472689532938/rotwk.png";
             break;
+            case 'Dagor' || 'DAGOR' || 'dagor':
+                title = "Le Mod des Dinosaures 🦖"
+                img = "https://images3.alphacoders.com/104/thumb-1920-1046460.jpg";
             default:
                 break;
         }
