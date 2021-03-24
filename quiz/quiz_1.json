@@ -152,6 +152,106 @@
 		"question": "Quel roi tua le Balrog de la Moria ?",
 		"img": "https://pbs.twimg.com/profile_images/1049774528451239941/5s2_4u4V_400x400.jpg",
 		"answers": ["Durin VI"]
+	},
+	{
+		"question": "Quel est le nom originel de la forteresse jumelle de Minas Tirith ?",
+		"img": "https://middleearthsbgfrance.files.wordpress.com/2018/09/minas-tirith.jpg",
+		"answers": ["Minas Ithil"]
+	},
+	{
+		"question": "Saroumane fut au service de quel Vala ?",
+		"img": "https://static.wikia.nocookie.net/seigneur-des-anneaux/images/b/b6/Saroumane.jpg/revision/latest?cb=20140204150613&path-prefix=fr",
+		"answers": ["Aulë"]
+	},
+	{
+		"question": "Comment sont appelés couramment les corneilles noires qui furent au service du Magicien ?",
+		"img": "https://2img.net/h/4.bp.blogspot.com/-Q1S-mjDvtHI/UXKbbVe_ssI/AAAAAAAAAYQ/nqASuXTgVc4/s1600/LordOTRingsFellowship_097Pyxurz.jpg",
+		"answers": ["Crébains"]
+	},
+	{
+		"question": "Quelle est la plus ancienne lignée des Nains ?",
+		"img": "https://static.wikia.nocookie.net/seigneur-des-anneaux/images/a/ab/Nains.png/revision/latest?cb=20150103223315&path-prefix=fr",
+		"answers": ["Les Longues-Barbes", "Longues-Barbes", "Les Longues Barbes", "Longues Barbes"]
+	},
+	{
+		"question": "Comment se nomment les Deux Lampes des Valar ?",
+		"img": "https://fracademic.com/pictures/frwiki/84/Tolkien_The_two_trees.jpg",
+		"answers": ["Illuin et Ormal", "Ormal et Illuin", "Illuin Ormal", "Ormal Illuins"]
+	},
+	{
+		"question": "Quelle est la date de la chute du Cardolan ?",
+		"img": "https://qph.fs.quoracdn.net/main-qimg-b62d3535bda09b964726785dd20e0f07",
+		"answers": ["1409 du TA", "1409 du 3ème Age"]
+	},
+	{
+		"question": "Qui pleura devant la tombe de Balin dans la Moria ?",
+		"img": "https://static.wikia.nocookie.net/lotr/images/5/52/Peter_Jackson%27s_Moria.jpg/revision/latest?cb=20110313211305",
+		"answers": ["Gimli"]
+	},
+	{
+		"question": "Quel autre nom porte le Vrai-Argent prisé des Nains ?",
+		"img": "https://img.wattpad.com/10b5bff08db2d14d462c6290668ff77801d4cf38/68747470733a2f2f6977616e74746f62656170696e75702e66696c65732e776f726470726573732e636f6d2f323031342f30322f6170627639752e6a7067?s=fit&h=360&w=360&q=80",
+		"answers": ["Le Mithril", "Mithril"]
+	},
+	{
+		"question": "Comment se nomme le seul port d'Aman ?",
+		"img": "https://st.renderu.com/artwork/142358",
+		"answers": ["Alqualondë"]
+	},
+	{
+		"question": "Qui affronta et tua le capitaine des Balrogs Gothmog lors de l'attaque sur Gondolin ? (nom en ENTIER)",
+		"img": "http://www.fulguropop.com/wp-content/uploads/2020/08/gothmog-balrog.jpg",
+		"answers": ["Ecthelion de la Source"]
+	},
+	{
+		"question": "Quel projectile tua Smaug ?",
+		"img": "https://mocah.org/uploads/posts/4599764-j-r-r.-tolkien-smaug-the-hobbit-fantasy-art-dragon-the-lord-of-the-rings-digital-art-sea-the-hobbit-the-desolation-of-smaug-movies-fire-town-creature.jpg",
+		"answers": ["Une flèche Noire"]
+	},
+	{
+		"question": "Quelle fut la bataille qui mit en déroute Sauron lors de sa guerre contre les Elfes au Second Age ?",
+		"img": "data:image/jpeg;base64,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",
+		"answers": ["Bataille du Gwathlo"]
+	},
+	{
+		"question": "Comment se nomme la maison de Bilbon et Frodon ?",
+		"img": "https://static.wikia.nocookie.net/lotr/images/e/e4/Vlcsnap-2013-05-19-19h49m07s0.png/revision/latest?cb=20130519155935",
+		"answers": ["Cul-de-sac"]
+	},
+	{
+		"question": "Qui prononce ces mots : 'Monsieur Frodon n'ira nulle part sans moi !'",
+		"img": "https://media.melty.fr/article-4324657-thumb-f19/media.jpg",
+		"answers": ["Sam"]
+	},
+	{
+		"question": "Comment se nomma la guerre pour les Silmarils ?",
+		"img": "https://static.wikia.nocookie.net/lotr/images/f/f4/The_three_Silmarils.jpg/revision/latest?cb=20070625171247",
+		"answers": ["La guerre des joyaux"]
+	},
+	{
+		"question": "Qui sont les elfes marins ?",
+		"img": "http://pm1.narvii.com/6298/2f3e8620c2f3d230d886085be4a2ada165284410_00.jpg",
+		"answers": ["Teleri"]
+	},
+	{
+		"question": "Quelle est la langue la plus courante en Terre du Milieu au 3ème Age ?",
+		"img": "https://actualitte.com/uploads/images/carte_de_la_terre_du_milieu-b76dea89-7a1f-4346-b3d3-213e1e5f9e75.jpg",
+		"answers": ["le Westron ou l'Occidentalien", "le Westron", "l'Occidentalien"]
+	},
+	{
+		"question": "Qui est le seul survivant des Fils de Fëanor ?",
+		"img": "https://static.wikia.nocookie.net/lotr/images/2/2a/Jenny_Dolfen_-_The_Drawing_of_the_Sword.jpg/revision/latest?cb=20130209123920",
+		"answers": ["Maglor"]
+	},
+	{
+		"question": "Dans le film du Retour du Roi, qui détruit le baton de Gandalf ?",
+		"img": "http://idata.over-blog.com/3/37/82/51/blog/p-429--baton-de-gandalf-1280337781.jpeg",
+		"answers": ["Le Roi-sorcier d'angmar", "Roi-Sorcier d'Angmar"]
+	},
+	{
+		"question": "Quelle pierre fut découverte par les Nains en l'an 2000 du T.A. ?",
+		"img": "https://static.wikia.nocookie.net/divinus-mk4/images/4/4f/Mian_Scaoilte.jpg/revision/latest?cb=20200403053505",
+		"answers": ["L'Arkenstone", "Arkenstone"]
 	}
 ]
 
