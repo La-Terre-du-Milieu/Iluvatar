@@ -1,9 +1,10 @@
 module.exports = {
 	name: 'quiz',
 	description: 'quiz!',
-	execute(message) {
+	async execute(message) {
         message.delete({ timeout: 100 });
 		const quiz = require('../quiz/quiz_1.json');
+        // const quiz = await mongoose.quizz.find();
         const item = quiz[Math.floor(Math.random() * quiz.length)];
         // const item = quiz[0]
         const filter = response => {

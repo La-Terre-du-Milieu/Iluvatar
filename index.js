@@ -1,8 +1,19 @@
 const fs = require('fs');
-require('dotenv').config()
+global.mongoose = require('mongoose');
+mongoose.set('useFindAndModify', false);
+require('dotenv').config();
+
+// eslint-disable-next-line no-undef
+mongoose.connect(process.env.dataURL, { useNewUrlParser: true, useUnifiedTopology: true });
+// eslint-disable-next-line no-undef
+mongoose.connection.on('connected', ()=>{
+	console.log('[✅ DataBase] Connected!');
+});
+
+global.Rank = require('./data/ranked/rank.js');
 
 // require the discord.js module
-const Discord = require('discord.js');
+global.Discord = require('discord.js');
 // create a new Discord client
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
