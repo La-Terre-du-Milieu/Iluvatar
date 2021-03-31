@@ -1,8 +1,10 @@
 var Schema = mongoose.Schema;
 
 const RankSchema = new Schema({
-    player: String,
-    point: Number,
+    player: { type: String, required: true},
+    point: { type: Number, default: 0 },
+    win: { type: Number, default: 0 },
+    lose: { type: Number, default: 0 }
 });
 
 module.exports = mongoose.model("Rank", RankSchema)
