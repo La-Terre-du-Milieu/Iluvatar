@@ -153,10 +153,10 @@ module.exports = {
 		})
 
 		//CHANNEL ID
-		let gdaChannel = message.guild.channels.cache.get("818445025410809887")
+		let gdaChannel = message.guild.channels.cache.get("826797824820772895")
 		
 		// //MESSAGE ID
-		gdaChannel.messages.fetch("826714566050054144")
+		gdaChannel.messages.fetch("826798088201961534")
 		.then(msg => {
 
 				const newEmbed = new Discord.MessageEmbed()
