@@ -2,7 +2,7 @@ var EloRank = require('elo-rank');
 var elo = new EloRank(50);
 
 module.exports = {
-	name: 'elroleague',
+	name: 'elroligue',
 	async execute(message, args) {
 		message.delete({ timeout: 100 });
 		if (message.member.roles.cache.has('646700553648340993' || '646687065597149189')) {
