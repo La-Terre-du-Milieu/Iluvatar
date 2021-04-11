@@ -11,6 +11,7 @@ mongoose.connection.on('connected', ()=>{
 });
 
 global.Rank = require('./data/ranked/rank.js');
+global.Match = require('./data/ranked/match.js');
 
 // require the discord.js module
 global.Discord = require('discord.js');

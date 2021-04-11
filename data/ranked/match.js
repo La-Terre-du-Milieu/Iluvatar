@@ -1,8 +1,6 @@
 const schema = mongoose.Schema({
-    replay: String,
-    map: String,
-    date: Date,
-    Player1: String,
-    Player2: String
+    channel: Number,
+    name: String,
+    value: String,
 });
-module.exports = mongoose.model("Rank", schema)
+module.exports = mongoose.model("Match", schema)

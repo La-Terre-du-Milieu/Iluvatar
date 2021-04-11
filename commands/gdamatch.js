@@ -4,7 +4,7 @@ const client = new Discord.Client();
 module.exports = {
 	name: 'match',
 	description: 'match',
-	execute(message, args) {
+	async execute(message, args) {
                 if(message.channel.parentID === "745263077821251715") {
                         console.log('Ready!');
                         console.log(args)
@@ -34,16 +34,46 @@ module.exports = {
                         // targetChannel.send(exampleEmbed);
         
                         // FIN CREATION DU EMBED
-        
+
+                        //DB MATCH
+
+                        await Match.findOneAndUpdate(
+                                { channel: message.channel.id },
+                                {
+                                        name: name,
+                                        value: test
+                                },
+                                { new: true, upsert: true }
+                        );
+
+                        const match = await Match.find({});
+
+                        console.log(match)
+
+                        const newMatch = match.map((v) => {
+                                return {
+                                        name: v.name,
+                                        value: v.value, 
+                                        inline: true
+                                }
+                        });
+
                         //CHANNEL ID
                         let gdaChannel = message.guild.channels.cache.get("796766896283189248")
-        
+
                         //MESSAGE ID
                         gdaChannel.messages.fetch("821398112870203423")
                         .then(msg => {
-                                const newEmbed = new Discord.MessageEmbed(msg.embeds[0])
-                                .addField(name, test)
-        
+                                const newEmbed = new Discord.MessageEmbed()
+                                .setColor('#E74C3C')
+                                .setTitle('Planning des Matchs 📅 du TOUR 12')
+                                .setDescription("Vous retrouverez ici normalement les dates des matchs de la Guerre de l'Anneau qui seront streamer par Elrohir où d'autres personnes")
+                                .addFields(newMatch)
+                                .setThumbnail('https://cdn.discordapp.com/attachments/647478928427974679/816689802815602729/logo.png')
+                                .setImage("https://cdn.discordapp.com/attachments/766584396429262869/828902172996796447/unknown.png")
+                                .setTimestamp()
+                                .setFooter("La Guerre de l'Anneau", 'https://cdn.discordapp.com/attachments/647478928427974679/816689802815602729/logo.png')
+
                                 msg.edit(newEmbed);
                         })
                         .catch(console.error);
