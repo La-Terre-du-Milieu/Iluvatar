@@ -56,15 +56,15 @@ client.on('message', message => {
 	let foundInText = false;
 	let blacklisted = ['kaamelott','connard']
 	for(var i in blacklisted){
-		if(message.content.toLowerCase().includes(blacklisted[i].toLowerCase())) foundInText = true;
-	}
+		if(message.content.toLowerCase().includes(blacklisted[i].toLowerCase())){
+			foundInText = true;
+			message.reply('there was an error trying to execute that command!');
+	}}
 
 	if(foundInText){
 		message.delete();
 		message.channel.send('C est la sainte journée');
 	}
-
-
 
 });
 
