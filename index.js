@@ -51,6 +51,21 @@ client.on('message', message => {
 		console.error(error);
 		message.reply('there was an error trying to execute that command!');
 	}
+
+	//BANWORD
+	let foundInText = false;
+	let blacklisted = ['kaamelott','connard']
+	for(var i in blacklisted){
+		if(message.content.toLowerCase().includes(blacklisted[i].toLowerCase())) foundInText = true;
+	}
+
+	if(foundInText){
+		message.delete();
+		message.channel.send('C est la sainte journée');
+	}
+
+
+
 });
 
 
