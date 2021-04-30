@@ -5,7 +5,7 @@ module.exports = {
 	name: 'match',
 	description: 'match',
 	async execute(message, args) {
-                if(message.channel.parentID === "745263077821251715") {
+                if(message.channel.parentID === "836578232417517588") {
                         console.log('Ready!');
                         console.log(args)
                         // console.log(message)
@@ -62,15 +62,15 @@ module.exports = {
                         let gdaChannel = message.guild.channels.cache.get("796766896283189248")
 
                         //MESSAGE ID
-                        gdaChannel.messages.fetch("821398112870203423")
+                        gdaChannel.messages.fetch("837619746861613068")
                         .then(msg => {
                                 const newEmbed = new Discord.MessageEmbed()
                                 .setColor('#E74C3C')
-                                .setTitle('Planning des Matchs 📅 du TOUR 14')
+                                .setTitle('Planning des Matchs 📅 du TOUR 15')
                                 .setDescription("Vous retrouverez ici normalement les dates des matchs de la Guerre de l'Anneau qui seront streamer par Elrohir où d'autres personnes")
                                 .addFields(newMatch)
                                 .setThumbnail('https://cdn.discordapp.com/attachments/647478928427974679/816689802815602729/logo.png')
-                                .setImage("https://cdn.discordapp.com/attachments/766584396429262869/833972524966477854/unknown.png")
+                                .setImage("https://cdn.discordapp.com/attachments/766584396429262869/836372557270876170/unknown.png")
                                 .setTimestamp()
                                 .setFooter("La Guerre de l'Anneau", 'https://cdn.discordapp.com/attachments/647478928427974679/816689802815602729/logo.png')
 
