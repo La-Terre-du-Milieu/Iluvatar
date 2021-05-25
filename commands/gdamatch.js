@@ -66,11 +66,11 @@ module.exports = {
                         .then(msg => {
                                 const newEmbed = new Discord.MessageEmbed()
                                 .setColor('#E74C3C')
-                                .setTitle('Planning des Matchs 📅 du TOUR 17')
+                                .setTitle('Planning des Matchs 📅 du TOUR 18')
                                 .setDescription("Vous retrouverez ici normalement les dates des matchs de la Guerre de l'Anneau qui seront streamer par Elrohir où d'autres personnes")
                                 .addFields(newMatch)
                                 .setThumbnail('https://cdn.discordapp.com/attachments/647478928427974679/816689802815602729/logo.png')
-                                .setImage("https://cdn.discordapp.com/attachments/766584396429262869/841557113293504522/unknown.png")
+                                .setImage("https://cdn.discordapp.com/attachments/766584396429262869/846707018537893888/unknown.png")
                                 .setTimestamp()
                                 .setFooter("La Guerre de l'Anneau", 'https://cdn.discordapp.com/attachments/647478928427974679/816689802815602729/logo.png')
 
