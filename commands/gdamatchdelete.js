@@ -23,7 +23,7 @@ module.exports = {
                         .setDescription("Vous retrouverez ici normalement les dates des matchs de la Guerre de l'Anneau qui seront streamer par Elrohir où d'autres personnes")
                         .addFields(match)
                         .setThumbnail('https://cdn.discordapp.com/attachments/647478928427974679/816689802815602729/logo.png')
-                        .setImage("https://cdn.discordapp.com/attachments/766584396429262869/846707018537893888/unknown.png")
+                        .setImage("https://cdn.discordapp.com/attachments/766584396429262869/844084552309276703/unknown.png")
                         .setTimestamp()
                         .setFooter("La Guerre de l'Anneau", 'https://cdn.discordapp.com/attachments/647478928427974679/816689802815602729/logo.png')
 
