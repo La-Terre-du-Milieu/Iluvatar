@@ -14,16 +14,18 @@ module.exports = {
 
                 const match = await Match.find({});
 
+                const data = await Gda.find({"_id" : '60c077823dabeb737cde8c99'})
+
                 //MESSAGE ID
                 gdaChannel.messages.fetch("837618246685032448")
                 .then(msg => {
                         const newEmbed = new Discord.MessageEmbed()
                         .setColor('#E74C3C')
-                        .setTitle('Planning des Matchs 📅 du TOUR 20')
+                        .setTitle(`Planning des Matchs 📅 du TOUR ${data[0].tour}`)
                         .setDescription("Vous retrouverez ici normalement les dates des matchs de la Guerre de l'Anneau qui seront streamer par Elrohir où d'autres personnes")
                         .addFields(match)
                         .setThumbnail('https://cdn.discordapp.com/attachments/647478928427974679/816689802815602729/logo.png')
-                        .setImage("https://cdn.discordapp.com/attachments/766584396429262869/849246152976891904/unknown.png")
+                        .setImage(data[0].img)
                         .setTimestamp()
                         .setFooter("La Guerre de l'Anneau", 'https://cdn.discordapp.com/attachments/647478928427974679/816689802815602729/logo.png')
 
