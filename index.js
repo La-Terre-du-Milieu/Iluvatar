@@ -12,6 +12,7 @@ mongoose.connection.on('connected', ()=>{
 
 global.Rank = require('./data/ranked/rank.js');
 global.Match = require('./data/ranked/match.js');
+global.Matchsurprise = require('./data/ranked/matchsurprise.js');
 global.Elfe = require('./data/ranked/elfe.js');
 global.Gda = require('./data/ranked/gda.js');
 

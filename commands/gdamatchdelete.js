@@ -17,7 +17,7 @@ module.exports = {
                 const data = await Gda.find({"_id" : '60c077823dabeb737cde8c99'})
 
                 //MESSAGE ID
-                gdaChannel.messages.fetch("837618246685032448")
+                await message.guild.channels.cache.get('796766896283189248').messages.fetch('837619746861613068')
                 .then(msg => {
                         const newEmbed = new Discord.MessageEmbed()
                         .setColor('#E74C3C')
