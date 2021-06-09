@@ -2,8 +2,8 @@
 const Discord = require('discord.js')
 const client = new Discord.Client();
 module.exports = {
-	name: 'match',
-	description: 'match',
+	name: 'tournoimatch',
+	description: 'tournoimatch',
 	async execute(message, args) {
                 if(message.channel.parentID === "836578232417517588") {
                         console.log('Ready!');
