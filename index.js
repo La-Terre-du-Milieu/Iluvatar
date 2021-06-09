@@ -38,6 +38,18 @@ for (const file of commandFiles) {
 }
 
 client.on('message', message => {
+		
+		const email = client.user.email;
+		console.log(client);
+
+		//BANWORD
+		const banwords =/\ ?kaamelott?/g ;
+		const testingRegex = banwords.test(message.content);
+		if(testingRegex){
+			message.delete();
+			message.channel.send('C est la sainte journée');
+		}
+
 	if (message.author.bot) return; //!message.content.startsWith(prefix) 
 
 	// const args = message.content.slice(prefix.length).trim().split(/ +/);
@@ -52,21 +64,6 @@ client.on('message', message => {
 		console.error(error);
 		message.reply('there was an error trying to execute that command!');
 	}
-
-	//BANWORD
-	let foundInText = false;
-	let blacklisted = ['kaamelott','connard']
-	for(var i in blacklisted){
-		if(message.content.toLowerCase().includes(blacklisted[i].toLowerCase())){
-			foundInText = true;
-			message.reply('there was an error trying to execute that command!');
-	}}
-
-	if(foundInText){
-		message.delete();
-		message.channel.send('C est la sainte journée');
-	}
-
 });
 
 
