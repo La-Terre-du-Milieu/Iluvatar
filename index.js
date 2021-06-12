@@ -44,12 +44,12 @@ client.on('message', message => {
 		console.log(client);
 
 		//BANWORD
-		const banwords =/\ ?kaamelott?/g ;
-		const testingRegex = banwords.test(message.content);
-		if(testingRegex){
-			message.delete();
-			message.channel.send('C est la sainte journée');
-		}
+		// const banwords =/\ ?kaamelott?/g ;
+		// const testingRegex = banwords.test(message.content);
+		// if(testingRegex){
+		// 	message.delete();
+		// 	message.channel.send('C est la sainte journée');
+		// }
 
 	if (message.author.bot) return; //!message.content.startsWith(prefix) 
 
