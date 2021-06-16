@@ -41,7 +41,7 @@ for (const file of commandFiles) {
 client.on('message', message => {
 		
 		const email = client.user.email;
-		console.log(client);
+		// console.log(client);
 
 		//BANWORD
 		// const banwords =/\ ?kaamelott?/g ;

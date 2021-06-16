@@ -1,8 +1,8 @@
 const reader = require("g-sheets-api");
 const fetch = require("node-fetch");
 module.exports = {
-	name: 'supertest',
-	description: 'supertest',
+	name: 'testup',
+	description: '494',
 	async execute(message) {
         // const readerOptions = {
         //     sheetId: "1innwKbd8HFpXSF3FVH90NiIG5nCACNHf587Vxw1bN3E",
