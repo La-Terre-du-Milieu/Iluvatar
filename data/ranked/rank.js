@@ -7,4 +7,4 @@ const RankSchema = new Schema({
     lose: { type: Number, default: 0 }
 });
 
-module.exports = mongoose.model("Rank", RankSchema)
+module.exports = ltdm.model("Rank", RankSchema)

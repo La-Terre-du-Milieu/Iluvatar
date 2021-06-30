@@ -2,13 +2,16 @@ const fs = require('fs');
 global.mongoose = require('mongoose');
 mongoose.set('useFindAndModify', false);
 require('dotenv').config();
+global.strapi = mongoose.createConnection(process.env.dataURLStrapi, { useNewUrlParser: true, useUnifiedTopology: true });
+global.ltdm = mongoose.createConnection(process.env.dataURL, { useNewUrlParser: true, useUnifiedTopology: true });
 
-// eslint-disable-next-line no-undef
-mongoose.connect(process.env.dataURL, { useNewUrlParser: true, useUnifiedTopology: true });
-// eslint-disable-next-line no-undef
-mongoose.connection.on('connected', ()=>{
-	console.log('[✅ DataBase] Connected!');
-});
+
+// // eslint-disable-next-line no-undef
+// mongoose.connect(process.env.dataURL, { useNewUrlParser: true, useUnifiedTopology: true });
+// // eslint-disable-next-line no-undef
+// mongoose.connection.on('connected', ()=>{
+// 	console.log('[✅ DataBase] Connected!');
+// });
 
 global.Rank = require('./data/ranked/rank.js');
 global.Match = require('./data/ranked/match.js');

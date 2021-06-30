@@ -7,4 +7,4 @@ const ElfeSchema = new Schema({
     lose: { type: Number, default: 0 }
 });
 
-module.exports = mongoose.model("Elfe", ElfeSchema)
+module.exports = ltdm.model("Elfe", ElfeSchema)

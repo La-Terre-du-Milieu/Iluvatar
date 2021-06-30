@@ -3,4 +3,4 @@ const schema = mongoose.Schema({
     name: String,
     value: String,
 });
-module.exports = mongoose.model("Matchsurprise", schema)
+module.exports = ltdm.model("Matchsurprise", schema)

@@ -1,6 +1,9 @@
 const schema = mongoose.Schema({
     channel: Number,
-    name: String,
-    value: String,
+    title: String,
+    start: Date,
+    end: Date,
+    class: String,
+    content: String
 });
-module.exports = mongoose.model("Match", schema)
+module.exports = strapi.model("plannings", schema)
