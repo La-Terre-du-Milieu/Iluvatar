@@ -1,9 +1,11 @@
 const schema = mongoose.Schema({
     channel: Number,
     title: String,
-    start: Date,
-    end: Date,
+    start: String,
+    end: String,
     class: String,
-    content: String
+    content: String,
+    name: String,
+    value: String
 });
 module.exports = strapi.model("plannings", schema)
