@@ -6,6 +6,7 @@ const schema = mongoose.Schema({
     class: String,
     content: String,
     name: String,
-    value: String
+    value: String,
+    contentFull: String
 });
 module.exports = strapi.model("plannings", schema)

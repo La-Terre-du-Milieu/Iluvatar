@@ -41,8 +41,9 @@ module.exports = {
                                                                 value: `Le ${moment(date, 'DD-MM-YYYY').format('dddd D MMMM')} à ${moment(time, 'HH:mm').format('LT')}`,
                                                                 content: `Match du Tour ${data[0].tour} de la Guerre de l'Anneau ⛰️`,
                                                                 start: `${moment(date, 'DD-MM-YYYY').format("YYYY-MM-DD")} ${time}`, 
-                                                                end: `${moment(date, 'DD-MM-YYYY').format("YYYY-MM-DD")} ${moment(time, 'HH:mm').add(1, 'hours').format('HH:mm')}`,
+                                                                end: `${moment(date, 'DD-MM-YYYY').format("YYYY-MM-DD")} ${moment(time, 'HH:mm').add(2, 'hours').format('HH:mm')}`,
                                                                 class: "rotwk",
+                                                                contentFull: "match"
                                                         },
                                                         { new: true, upsert: true }
                                                 );
