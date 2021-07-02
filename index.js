@@ -41,7 +41,7 @@ for (const file of commandFiles) {
 	client.commands.set(command.name, command);
 }
 
-client.on('message', message => {
+client.on('message', async (message) => {
 		
 		const email = client.user.email;
 		// console.log(client);
@@ -63,7 +63,7 @@ client.on('message', message => {
 	if (!client.commands.has(command)) return;
 
 	try {
-		client.commands.get(command).execute(message, args);
+		await client.commands.get(command).execute(message, args);
 	} catch (error) {
 		console.error(error);
 		message.reply('there was an error trying to execute that command!');
