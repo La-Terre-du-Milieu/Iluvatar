@@ -7,7 +7,7 @@ module.exports = {
 	name: 'host',
 	description: 'host',
 	async execute(message, args) {
-        if(message.channel.parentID !== "646688762595901450") return
+        // if(message.channel.parentID !== "646688762595901450") return
 
         await message.delete({ 
             timeout: 100 
