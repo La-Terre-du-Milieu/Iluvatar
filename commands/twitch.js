@@ -22,7 +22,7 @@ module.exports = {
         let timedebut = ""
         let timefin = ""
 
-        const m = await message.channel.send("**Création d'un match**\n\nVeuillez entrer une date `30/06`")
+        const m = await message.channel.send(`**Création d'un Live** \n\nVeuillez entrer une date, du format suivant : ${moment().format("DD/MM")}`)
         const collected = await message.channel.awaitMessages(filterDate, {
             max: 1,
             time: 10000,
@@ -39,7 +39,7 @@ module.exports = {
             timeout: 100
         });
 
-        const m2 = await message.channel.send("Veuillez entrer une heure de début `15:30`");
+        const m2 = await message.channel.send(`Veuillez entrer une heure de début, du format suivant : ${moment().format("HH:mm")}`);
         const collected2 = await message.channel.awaitMessages(filterTime, {
             max: 1,
             time: 10000,
@@ -55,7 +55,7 @@ module.exports = {
             timeout: 100
         });
 
-        const m3 = await message.channel.send("Veuillez entrer une heure de fin `15:30`");
+        const m3 = await message.channel.send(`Veuillez entrer une heure de fin, du format suivant : ${moment().format("HH:mm")}`);
         const collected3 = await message.channel.awaitMessages(filterTime, {
             max: 1,
             time: 10000,
