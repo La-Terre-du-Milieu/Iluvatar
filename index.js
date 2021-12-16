@@ -2,7 +2,7 @@ const fs = require('fs');
 global.mongoose = require('mongoose');
 mongoose.set('useFindAndModify', false);
 require('dotenv').config();
-global.strapi = mongoose.createConnection(process.env.dataURLStrapi, { useNewUrlParser: true, useUnifiedTopology: true });
+// global.strapi = mongoose.createConnection(process.env.dataURLStrapi, { useNewUrlParser: true, useUnifiedTopology: true });
 global.ltdm = mongoose.createConnection(process.env.dataURL, { useNewUrlParser: true, useUnifiedTopology: true });
 
 
