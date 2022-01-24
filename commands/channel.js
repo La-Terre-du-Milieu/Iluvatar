@@ -1,28 +1,52 @@
-const reader = require("g-sheets-api");
+const GSheetReader = require("g-sheets-api");
 const fetch = require("node-fetch");
 const Discord = require('discord.js')
 const client = new Discord.Client();
 module.exports = {
-	name: 'supertest',
+	name: 'gdetest',
 	description: '494',
 	async execute(message) {
 
+
+        const options = {
+            apiKey: 'AIzaSyBIYggQiFUmP8l_KlG6gJ51xEwGQQ5aXkM',
+            sheetId: '1r4bV8-CQoE1zEUxKI2eBrWwZ03szyNYqcNc-A6IrW98',
+            sheetName: 'Réponses au formulaire 1'
+          }
+
+
         const Dictionnaire = new Map();
 
-        const readerOptions = {
-            sheetId: "1innwKbd8HFpXSF3FVH90NiIG5nCACNHf587Vxw1bN3E",
-            returnAllResults: true
-          };
+        // const readerOptions = {
+        //     sheetId: "1innwKbd8HFpXSF3FVH90NiIG5nCACNHf587Vxw1bN3E",
+        //     returnAllResults: true
+        //   };
 
-        reader(readerOptions, (results) => {
-            results.map(result => {
-                Dictionnaire.set(result['Pseudo GDA'], result['Identifiant Discord (Elrohir#8420)'])
-            })  
-        }); 
+        // reader(readerOptions, (results) => {
+        //     results.map(result => {
+        //         Dictionnaire.set(result['Pseudo GDA'], result['Identifiant Discord (Elrohir#8420)'])
+        //     })  
+        // }); 
+
+        await GSheetReader(
+            options,
+            results => {
+                console.log(results)
+                results.map(result => {
+                Dictionnaire.set(result['Pseudo en jeu et sur la carte'], result['Identifiant Discord'])
+                }) 
+            },
+            error => {
+                console.log(error)
+            }
+          );
+
+          
+        console.log(Dictionnaire, "dico")
 
         let newArray = []
 
-        await fetch("https://api.npoint.io/38a2899b98818d89418c")
+        await fetch("https://api.npoint.io/2eeb1bea715cd907d7bc")
         .then((response) => response.json())
         .then((data) => {
             // console.log(data)
@@ -37,6 +61,7 @@ module.exports = {
         }).catch(err => {
             console.log(err)
         });
+
 
         let error = [] 
         newArray.map(async region => {
