@@ -30,6 +30,14 @@ const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('
 // this event will only trigger one time after logging in
 client.once('ready', () => {
 	console.log('Ready!');
+	// client.users.cache.find(user => user.id === 'USER-ID')
+	// const user = client.users.fetch('931280660746879066').then(member => {
+
+	// 	console.log(member)
+		
+	// })
+	// .catch(console.error);
+	
     client.user.setActivity('LA TERRE DU MILIEU', { type: 'LISTENING' });
 });
 
@@ -42,6 +50,7 @@ for (const file of commandFiles) {
 }
 
 client.on('message', async (message) => {
+	
 		
 		const email = client.user.email;
 		// console.log(client);
