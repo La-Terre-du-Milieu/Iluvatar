@@ -3,7 +3,7 @@ const fetch = require("node-fetch");
 const Discord = require('discord.js');
 
 module.exports = {
-	name: 'gdetest42',
+	name: 'gdetest32',
 	description: '494',
 	async execute(message) {
 
@@ -89,6 +89,7 @@ module.exports = {
             let players = []
             let playersEmbed = []
             let chefdeFaction = []
+            let chefAlliance = []
             let chefdeFactionEmbed = []
             let error = []
             let factions = []
@@ -120,13 +121,31 @@ module.exports = {
                             factions.push(parseInt(player["faction"]));
                         }
                     })
-                    .catch(console.error);
-
-
-
+                    .catch(e => {
+                        console.log(e)
+                        error.push(region["name"] + " " + player["name"].trim())
+                    })
                 } else {
                     error.push(region["name"] + " " + player["name"].trim())
                 }
+            };
+
+            let listChefAlliance = ["Elessar", "Gimli"]
+
+            for (let chef of listChefAlliance) {
+                    let r = Dictionnaire.get(chef)
+                    await message.guild.members.fetch({ user:[r], cache: false })
+                    .then(member => {
+                        console.log(member.first().user.id, "member.first().user.id")
+                        chefAlliance.push({
+                            id: member.first().user.id,
+                            allow: ['VIEW_CHANNEL']
+                        })
+                    })
+                    .catch(e => {
+                        console.log(e)
+                        error.push(region["name"] + " " + player["name"].trim())
+                    })
             };
 
             // const obj = players.find(x => x.id === 2)
@@ -134,16 +153,11 @@ module.exports = {
             console.log(players, playersEmbed, "players")
               
             for (let p of factionsPlayer) {
-                console.log(factions.some(x => x == p.id), "idjeidieide")
-
                 if(factions.some(x => x == p.id)){
-                    console.log("JE PASSE ???")
                     let r = Dictionnaire.get(p.chef.trim())
-                    console.log(r, p.chef.trim())
-    
+
                     await message.guild.members.fetch({ user:[r], cache: false })
                         .then(member => {
-                            console.log(member.first().user.id, "CHEF DE FACTION")
                             chefdeFaction.push({
                                 id: member.first().user.id,
                                 allow: ['VIEW_CHANNEL']
@@ -153,7 +167,10 @@ module.exports = {
                                 faction: Factions.get(parseInt(p.id))
                             })
                         })
-                        .catch(console.error);
+                        .catch(e => {
+                            console.log(e)
+                            error.push(region["name"] + " " + player["name"].trim())
+                        })
                 }
             }
 
@@ -185,9 +202,9 @@ module.exports = {
             if(players){
                 await message.guild.channels.create(region["name"], { //Create a channel
                     type: 'text', //Make sure the channel is a text channel
-                    parent: '646688762595901450', //catégorie La Guerre de l'Eriador 
+                    parent: '876522672140480542', //catégorie La Guerre de l'Eriador 
                     topic: region["description"],
-                    permissionOverwrites: [...chefdeFaction, ...players],
+                    permissionOverwrites: [...chefdeFaction, ...players, ...chefAlliance],
                 }).then(channel => {
 
                     let color = region["color"];
@@ -206,6 +223,17 @@ module.exports = {
                     .addFields(Fields)
                     .addField("Chefs de faction", Fields2.length)
                     .addFields(Fields2)
+                    .addField("Chefs d'alliance", 2)
+                    .addFields([
+                        {
+                            name: "Elessar",
+                            value: "BIEN"
+                        },
+                        {
+                            name: "Gimli",
+                            value: "MAL"
+                        }
+                    ])
                     .setColor(color)
                     .setImage(region["img"])
                     .attachFiles(new Discord.MessageAttachment("https://cdn.discordapp.com/attachments/910888414306529321/936224043433074728/logo.png", 'thumbnail.png'))
@@ -213,7 +241,7 @@ module.exports = {
                     .setFooter('Eru Ilúvatar');
                     
                     channel.send(embed)
-                    // channel.send(`Nouveau match ${msg}\n\n Veuillez remplir le doodle avant mercredi 18h\n\nBonne chance !`);
+                    channel.send(`Nouveau match ${msg}\n\n Veuillez remplir le doodle avant mercredi 18h\n\nBonne chance !`);
                     channel.send(`Liste des erreur ${error}.`);
                 }).catch(console.error)
             };          
