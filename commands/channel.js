@@ -243,6 +243,7 @@ module.exports = {
                     channel.send(embed)
                     channel.send(`Nouveau match ${msg}\n\n Veuillez remplir le doodle avant mercredi 18h\n\nBonne chance !`);
                     channel.send(`Liste des erreur ${error}.`);
+                    channel.send(`Veuillez à bien remplir vos disponibilités sur le lien 'Xoyondo'\n\nSi vous avez un problème voici un tuto https://youtu.be/mEYLy6vTq30`);
                 }).catch(console.error)
             };          
         })
