@@ -45,7 +45,7 @@ client.once('ready', () => {
 
 	let scheduledMessage = new cron.CronJob('00 38 11 * * *', async () => {
 			const guild = client.guilds.cache.get('646686225737973770');
-			const channel = guild.channels.cache.get('646699608138973204');
+			const channel = guild.channels.cache.get('646686225737973773');
 
 			const query = qs.stringify({
 				populate: '*',
