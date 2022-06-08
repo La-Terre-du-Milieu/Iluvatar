@@ -29,6 +29,7 @@ global.Discord = require('discord.js');
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+const commandFilesLeagues = fs.readdirSync('./commands/leagues').filter(file => file.endsWith('.js'));
 
 function delay(t, val) {
 	return new Promise(function(resolve) {
@@ -43,7 +44,7 @@ function delay(t, val) {
 client.once('ready', () => {
 	console.log('Ready!');
 
-	let scheduledMessage = new cron.CronJob('00 38 11 * * *', async () => {
+	let scheduledMessage = new cron.CronJob('00 00 10 * * *', async () => {
 			const guild = client.guilds.cache.get('646686225737973770');
 			const channel = guild.channels.cache.get('646686225737973773');
 
@@ -100,6 +101,11 @@ client.login(process.env.TOKEN);
 
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
+	client.commands.set(command.name, command);
+}
+
+for (const file of commandFilesLeagues) {
+	const command = require(`./commands/leagues/${file}`);
 	client.commands.set(command.name, command);
 }
 
