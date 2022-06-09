@@ -2,7 +2,7 @@ const qs = require('qs');
 const axios = require('axios').default;
 
 module.exports = {
-	name: 'lfa',
+	name: 'ligue',
 	description: 'bobby',
 	async execute(message) {
 		message.delete({ timeout: 100 });
@@ -29,12 +29,16 @@ module.exports = {
 		
 
 		for (const [index, player] of data.data.sort((a, b) => b.attributes.elo - a.attributes.elo).entries()) {
-			console.log(player, "o", index, test, fields, data.data.length - 1)
-			if (index === data.data.length - 1) {
+			
+			if (index === data.data.length - 1 && (index + 1) % 2 != 0) {
+				console.log("1", index, data.data.length - 1)
 				test.name = `[${index + 1}] ${player.attributes.name} (${player.attributes.elo} points)`
 				test.value = `---------------`
+				fields.push(test)
 			} else {
+				console.log("2", index, data.data.length - 1)
 				if((index + 1) % 2 == 0) {
+					console.log("3")
 					let position = `[${index + 1}]`;
 					if(index+1 === 2){
 						position = "🥈";
@@ -43,6 +47,7 @@ module.exports = {
 					fields.push(test)
 					test = {}
 				} else {
+					console.log("4")
 					let position = `[${index + 1}]`;
 					if(index+1 === 1){
 						position = "🥇";
