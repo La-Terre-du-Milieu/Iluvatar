@@ -70,7 +70,7 @@ module.exports = {
 			fields: fields,
 			timestamp: new Date(),
 			footer: {
-				text: "Pour actualiser le tableau suffit de d'écrire 'lfa'   "
+				text: "Pour actualiser le tableau suffit de d'écrire 'ligue'   "
 			},
 		};
 

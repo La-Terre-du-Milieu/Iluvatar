@@ -47,7 +47,7 @@ module.exports = {
 			for await (const [index, replay] of player.attributes.replays.entries()){
 				console.log(replay)
 				// test.value += `Ma`
-				test.value += `Match ${index+1}: ${replay.player_win.data.attributes.name} (${replay.faction_win.data.attributes.name}) VS (${replay.faction_lose.data.attributes.name}) ${replay.player_lose.data.attributes.name}\n`
+				test.value += `Match ${index+1}: ${replay.player_win.data.attributes.name} (+${player.attributes.elo[0].player_win.elo_win} points - ${replay.faction_win.data.attributes.name}) VS (-${player.attributes.elo[0].player_lose.elo_lose} points - ${replay.faction_lose.data.attributes.name}) ${replay.player_lose.data.attributes.name}\n`
 			}
 			
 			fields.push(test);
@@ -66,9 +66,9 @@ module.exports = {
 			description: 'joueur (victoire) - faction vs faction - joueur (défaite)',
 			fields: fields,
 			timestamp: new Date(),
-			// footer: {
-			// 	text: "Pour actualiser le tableau suffit de d'écrire 'lfa'   "
-			// },
+			footer: {
+				text: "Pour actualiser le tableau suffit de d'écrire 'liguegame'"
+			},
 		};
 
 		//CHANNEL ID
