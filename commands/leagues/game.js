@@ -1,13 +1,15 @@
 const qs = require('qs');
 const axios = require('axios').default;
-
+const moment = require('moment');
+moment.locale('fr')
 module.exports = {
-	name: 'liguegame',
+	name: 'liguegametest',
 	description: 'bobby',
 	async execute(message) {
 		message.delete({ timeout: 100 });
         const query = qs.stringify({
             fields: '*',
+			sort: ['date:desc'],
 			populate: {
 				populate: "*",
 				replays: {
@@ -42,12 +44,12 @@ module.exports = {
 
 			console.log(player.attributes.replays[0].faction_win.data.attributes.name)
 
-			test.name = `Affrontement n°${index+1} - BO${player.attributes.bo}`
+			test.name = `${moment(player.attributes.date).fromNow()} - BO${player.attributes.bo}`
 
 			for await (const [index, replay] of player.attributes.replays.entries()){
 				console.log(replay)
 				// test.value += `Ma`
-				test.value += `Match ${index+1}: ${replay.player_win.data.attributes.name} (+${player.attributes.elo[0].player_win.elo_win} points - ${replay.faction_win.data.attributes.name}) VS (-${player.attributes.elo[0].player_lose.elo_lose} points - ${replay.faction_lose.data.attributes.name}) ${replay.player_lose.data.attributes.name}\n`
+				test.value += `Match  ${index+1} (${replay.faction_win.data.attributes.name}) VS (${replay.faction_lose.data.attributes.name}) ${replay.player_lose.data.attributes.name}\n`
 			}
 			
 			fields.push(test);
@@ -64,11 +66,11 @@ module.exports = {
 			color: 0x31d0c6,
 			title: 'Historique de la Ligue 🐉',
 			description: 'joueur (victoire) - faction vs faction - joueur (défaite)',
-			fields: fields,
+			fields: fields.slice(0, 25).reverse(),
 			timestamp: new Date(),
-			footer: {
-				text: "Pour actualiser le tableau suffit de d'écrire 'liguegame'"
-			},
+			// footer: {
+			// 	text: "Pour actualiser le tableau suffit de d'écrire 'lfa'   "
+			// },
 		};
 
 		//CHANNEL ID
