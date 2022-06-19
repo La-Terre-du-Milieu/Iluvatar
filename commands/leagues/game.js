@@ -44,7 +44,7 @@ module.exports = {
 
 			console.log(player.attributes.replays[0].faction_win.data.attributes.name)
 
-			test.name = `${moment(player.attributes.date).fromNow()} - BO${player.attributes.bo}`
+			test.name = `${moment(player.attributes.date).format("dddd Do MMMM à HH:mm")} - BO${player.attributes.bo}`
 
 			for await (const [index, replay] of player.attributes.replays.entries()){
 				console.log(replay)
@@ -68,9 +68,9 @@ module.exports = {
 			description: 'joueur (victoire) - faction vs faction - joueur (défaite)',
 			fields: fields.slice(0, 25).reverse(),
 			timestamp: new Date(),
-			// footer: {
-			// 	text: "Pour actualiser le tableau suffit de d'écrire 'lfa'   "
-			// },
+			footer: {
+				text: "Pour actualiser le tableau suffit de d'écrire 'liguegame'   "
+			},
 		};
 
 		//CHANNEL ID
