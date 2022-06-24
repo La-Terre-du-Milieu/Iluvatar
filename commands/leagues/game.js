@@ -49,7 +49,7 @@ module.exports = {
 			for await (const [index, replay] of player.attributes.replays.entries()){
 				console.log(replay)
 				// test.value += `Ma`
-				test.value += `Match  ${index+1} ${replay.player_win.data.attributes.name} (${replay.faction_win.data.attributes.name}) VS (${replay.faction_lose.data.attributes.name}) ${replay.player_lose.data.attributes.name}\n`
+				test.value += `Match ${index+1} ${replay.player_win.data.attributes.name} (${replay.faction_win.data.attributes.name}) VS (${replay.faction_lose.data.attributes.name}) ${replay.player_lose.data.attributes.name}\n`
 			}
 			
 			fields.push(test);

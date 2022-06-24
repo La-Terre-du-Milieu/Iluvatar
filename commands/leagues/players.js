@@ -29,10 +29,19 @@ module.exports = {
 		
 
 		for (const [index, player] of data.data.sort((a, b) => b.attributes.elo - a.attributes.elo).entries()) {
+
+			console.log(player, "player")
+
+			let amazing = ""
+			if(player.attributes.historic){
+				const lastItem = player.attributes.historic[player.attributes.historic.length - 1]
+				console.log(lastItem, "lastItem")
+				amazing = `[${lastItem.resulat > 0 ? "+" : ""}${lastItem.resulat}]`
+			}
 			
 			if (index === data.data.length - 1 && (index + 1) % 2 != 0) {
 				console.log("1", index, data.data.length - 1)
-				test.name = `[${index + 1}] ${player.attributes.name} (${player.attributes.elo} points)`
+				test.name = `[${index + 1}] ${player.attributes.name} (${player.attributes.elo} points) ${amazing}`
 				test.value = `---------------`
 				fields.push(test)
 			} else {
@@ -43,7 +52,7 @@ module.exports = {
 					if(index+1 === 2){
 						position = "🥈";
 					}
-					test.value = `${position} ${player.attributes.name} (${player.attributes.elo} points)`
+					test.value = `${position} ${player.attributes.name} (${player.attributes.elo} points) ${amazing}`
 					fields.push(test)
 					test = {}
 				} else {
@@ -55,7 +64,7 @@ module.exports = {
 					if(index+1 === 3){
 						position = "🥉";
 					}
-					test.name = `${position} ${player.attributes.name} (${player.attributes.elo} points)`
+					test.name = `${position} ${player.attributes.name} (${player.attributes.elo} points) ${amazing}`
 				}
 			}	
 		}
