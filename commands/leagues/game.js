@@ -44,12 +44,14 @@ module.exports = {
 
 			console.log(player.attributes.replays[0].faction_win.data.attributes.name)
 
+			// console.log(player.attributes.alo[1]?.player_win?.elo_win, "ELO")
+
 			test.name = `${moment(player.attributes.date).format("dddd Do MMMM à HH:mm")} - BO${player.attributes.bo}`
 
 			for await (const [index, replay] of player.attributes.replays.entries()){
 				console.log(replay)
 				// test.value += `Ma`
-				test.value += `Match ${index+1} ${replay.player_win.data.attributes.name} (${replay.faction_win.data.attributes.name}) VS (${replay.faction_lose.data.attributes.name}) ${replay.player_lose.data.attributes.name}\n`
+				test.value += `Match ${index+1} ${replay.player_win.data.attributes.name} ${player.attributes.elo[index]?.player_win?.gain ? `[+${player.attributes.elo[index]?.player_win?.gain}]` : "" } (${replay.faction_win.data.attributes.name}) VS (${replay.faction_lose.data.attributes.name}) ${player.attributes.elo[index]?.player_lose?.loss ? `[${player.attributes.elo[index]?.player_lose?.loss}]` : "" } ${replay.player_lose.data.attributes.name}\n`
 			}
 			
 			fields.push(test);
