@@ -3,7 +3,7 @@ const axios = require('axios').default;
 const moment = require('moment');
 moment.locale('fr')
 module.exports = {
-	name: 'liguegame',
+	name: 'liguegamet',
 	description: 'bobby',
 	async execute(message) {
 		message.delete({ timeout: 100 });
@@ -51,7 +51,7 @@ module.exports = {
 			for await (const [index, replay] of player.attributes.replays.entries()){
 				console.log(replay)
 				// test.value += `Ma`
-				test.value += `Match ${index+1} ${replay.player_win.data.attributes.name} ${player.attributes.elo[index]?.player_win?.gain ? `[+${player.attributes.elo[index]?.player_win?.gain}]` : "" } (${replay.faction_win.data.attributes.name}) VS (${replay.faction_lose.data.attributes.name}) ${player.attributes.elo[index]?.player_lose?.loss ? `[${player.attributes.elo[index]?.player_lose?.loss}]` : "" } ${replay.player_lose.data.attributes.name}\n`
+				test.value += `Match ${index+1} ${replay.player_win.data.attributes.name} ${player.attributes.elo[index]?.player_win?.gain ? `[${player.attributes.elo[index]?.player_win?.before} | +${player.attributes.elo[index]?.player_win?.gain}]` : "" } (${replay.faction_win.data.attributes.name}) VS (${replay.faction_lose.data.attributes.name}) ${player.attributes.elo[index]?.player_lose?.loss ? `[${player.attributes.elo[index]?.player_lose?.before} | ${player.attributes.elo[index]?.player_lose?.loss}]` : "" } ${replay.player_lose.data.attributes.name}\n`
 			}
 			
 			fields.push(test);
