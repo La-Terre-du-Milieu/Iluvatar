@@ -3,7 +3,7 @@ const axios = require('axios').default;
 const moment = require('moment');
 moment.locale('fr')
 module.exports = {
-	name: 'liguegamet',
+	name: 'liguegame',
 	description: 'bobby',
 	async execute(message) {
 		message.delete({ timeout: 100 });
