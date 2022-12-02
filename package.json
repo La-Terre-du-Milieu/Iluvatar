@@ -25,9 +25,10 @@
   "dependencies": {
     "@pelevesque/elo": "^2.0.9",
     "axios": "^0.26.1",
+    "binary-file": "^0.2.3",
     "canvas": "^2.7.0",
     "cron": "^1.8.2",
-    "discord.js": "^12.5.3",
+    "discord.js": "^14.6.0",
     "dotenv": "^8.2.0",
     "elo-rank": "^1.0.4",
     "eslint": "^7.24.0",
