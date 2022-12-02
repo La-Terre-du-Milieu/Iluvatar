@@ -5,11 +5,18 @@ const { Client, Events, GatewayIntentBits, Collection } = require('discord.js');
 require('dotenv').config();
 
 // Create a new client instance
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildMessageReactions] });
 
 client.commands = new Collection();
+client.buttons = new Collection();
 const commandsPath = path.join(__dirname, 'commands');
 const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
+
+client.on("messageCreate", (message) => {
+	if(message.content == "<:gollum:646777565469736960>") {
+		message.react('646777565469736960');
+	}
+  });
 
 for (const file of commandFiles) {
 	const filePath = path.join(commandsPath, file);
@@ -29,9 +36,29 @@ for (const file of eventFiles) {
 	const filePath = path.join(eventsPath, file);
 	const event = require(filePath);
 	if (event.once) {
-		client.once(event.name, (...args) => event.execute(...args), client);
+		client.once(event.name, (...args) => event.execute(...args, client));
 	} else {
-		client.on(event.name, (...args) => event.execute(...args), client);
+		client.on(event.name, (...args) => event.execute(...args, client));
+	}
+}
+
+const componentsPath = path.join(__dirname, 'components');
+const componentFolders = fs.readdirSync(componentsPath)
+
+for (const folder of componentFolders) {
+	const componentFiles = fs.readdirSync(`${componentsPath}/${folder}`).filter(file => file.endsWith('.js'));
+
+	const { buttons } = client;
+
+	switch (folder) {
+		case "buttons":
+			for (const file of componentFiles) {
+				const button = require(`${componentsPath}/${folder}/${file}`);
+				buttons.set(button.data.name, button);
+			}
+		
+		default:
+			break;
 	}
 }
 

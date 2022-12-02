@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 
 
 const BinaryFile = require('binary-file');
@@ -22,13 +22,13 @@ let dictionnaireArmy = {
   }
   
   let dictionnaireArmies = {
-	1: "Homme",
-	2: "Elfe",
-	3: "Nain", 
-	4: "Isengard", 
-	5: "Mordor",
-	6: "Gobelin",
-	7: "Angmar"
+	0: "Homme",
+	1: "Elfe",
+	2: "Nain", 
+	3: "Isengard", 
+	4: "Mordor",
+	5: "Gobelin",
+	6: "Angmar"
   }
   
   function isNullOrWhitespace( input ) {
@@ -180,9 +180,7 @@ module.exports = {
 			});
 		}
 
-		let test = getRemoteFile(target.name, target.url)
-
-		console.log(test, "test")
+		await getRemoteFile(target.name, target.url)
 
 		await setTimeout(1000);
   		console.log("Waited 5s");
@@ -409,7 +407,8 @@ module.exports = {
 			})
 			const replayEmbed = new EmbedBuilder()
 				.setTitle(replayData?.FileName)
-				.setDescription(`🗺️ Carte : ${replayData.HeaderFields.MapName}\n`)
+				.setDescription(`🗺️ Carte : ${replayData.HeaderFields.MapName}\n
+				📦 Version : ${replayData.Version != "MISSING: 'Version:Format4'" ? replayData.Version : "Inconnu" }`)
 				.addFields(newField)
 				.setColor('#E74C3C')
 				.setTimestamp()
@@ -427,7 +426,19 @@ module.exports = {
 				// .setThumbnail('https://cdn.discordapp.com/attachments/647478928427974679/816689802815602729/logo.png')
 	
 			console.log("je passe là 2")
-			interaction.reply({embeds:[replayEmbed]})
+
+
+			const button = new ButtonBuilder()
+			.setURL(target.url)
+            .setLabel(`Télécharger le replay`)
+            .setStyle(ButtonStyle.Link);
+
+			interaction.reply(
+				{
+					components: [new ActionRowBuilder().addComponents(button)],
+					embeds:[replayEmbed]
+				},
+			)
 
 		} catch (err) {
 			console.log(`There was an error: ${err}`);
