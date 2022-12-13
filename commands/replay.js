@@ -223,9 +223,14 @@ module.exports = {
 
 			replayData.HeaderRawData = await Read1ByteString(myBinaryFile); // Header
 
+			const playerRegister = await myBinaryFile.readString(1);
+			console.log(playerRegister, "playerRegister")
+
 			if (!isNullOrWhitespace(replayData.HeaderRawData))
 			{
 				const headerRawData = replayData.HeaderRawData.split(';');
+
+				console.log(headerRawData, "headerRawData")
 
 				let headerFields = {
 				MapName: headerRawData[0].substring(6), // Name map
@@ -407,12 +412,14 @@ module.exports = {
 			})
 			const replayEmbed = new EmbedBuilder()
 				.setTitle(replayData?.FileName)
-				.setDescription(`🗺️ Carte : ${replayData.HeaderFields.MapName}\n
-				📦 Version : ${replayData.Version != "MISSING: 'Version:Format4'" ? replayData.Version : "Inconnu" }`)
+				.setDescription(`🗺️ Carte : ${replayData.HeaderFields.MapName}
+				📦 Version : ${replayData.Version != "MISSING: 'Version:Format4'" ? replayData.Version : "Inconnu" }
+				⌛ Durée de la partie : ${Math.ceil(moment.duration(moment.unix(replayData.TimestampEnd).diff(moment.unix(replayData.TimestampStart))).asMinutes())} minutes
+				💾 Partie enregistré par ${newField[playerRegister]?.name}`)
 				.addFields(newField)
 				.setColor('#E74C3C')
 				.setTimestamp()
-				.setFooter({ text: `⌛ Durée de la partie : ${Math.ceil(moment.duration(moment.unix(replayData.TimestampEnd).diff(moment.unix(replayData.TimestampStart))).asMinutes())} minutes` });
+				// .setFooter({ text: `⌛ Durée de la partie : ${Math.ceil(moment.duration(moment.unix(replayData.TimestampEnd).diff(moment.unix(replayData.TimestampStart))).asMinutes())} minutes` });
 				// .addFields(
 				// 	{ name: 'Homme', value: nbPlayerHomme, inline: true },
 				// 	{ name: 'Elfe', value: nbPlayerElfe, inline: true },
