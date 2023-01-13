@@ -11,7 +11,7 @@ module.exports = {
         .setAutocomplete(true)),
     async autocomplete(interaction) {
       const focusedValue = interaction.options.getFocused();
-      const choices = ['ping', 'Sharding: Getting started', 'Library: Voice Connections', 'Interactions: Replying to slash commands', 'Popular Topics: Embed preview'];
+      const choices = ['Multijoueur sur BFME', 'Clé BFME', 'Options INI'];
       const filtered = choices.filter(choice => choice.startsWith(focusedValue));
       await interaction.respond(
         filtered.map(choice => ({ name: choice, value: choice })),
@@ -22,38 +22,25 @@ module.exports = {
     const query = interaction.options.getString('query');
     console.log(query, "query")
 
-
-    function getRandomInt(max) {
-      return Math.floor(Math.random() * Math.floor(max));
+    let phrase;
+    switch (query) {
+      case "Multijoueur sur BFME":
+        phrase = `> Les serveurs d'EA sont fermés depuis longtemps, deux manières de jouer en multijoueur : \n\n**__Gameranger__**\nTélécharger Gameranger ici : https://www.gameranger.com/download
+        \n\n __**Radmin VPN**__  \nTélécharger Radmin VPN ici : https://www.radmin-vpn.com/fr\nNom du réseau : LTDM\nMot de passe : gollum`
+        break;
+      case "Clé BFME":
+        phrase = `> **Cette vidéo** contient des clés pour tous les BFME, il suffit de faire pause et de recopier la clé !\n\nhttps://youtu.be/eWg680bt_es`
+        break;
+      case "Options INI":
+        phrase = `Pour ajouter le fichier options.ini
+        1️ Télécharger le fichier options.ini : https://drive.google.com/file/d/1wBJC6Lp7u5hf9Nd3dZP8iVsf0Keq0chE/view?usp=sharing 
+        2️ Allez dans le dossier roaming, pour ça il faut appuyer simultanément sur la touche Windows et la touche :regional_indicator_r:, puis, dans la fenêtre qui apparait, il faut marquer %appdata%.
+        3️ Dans roaming, allez dans le dossier au nom du jeu et placez-y le fichier options.ini (c'est normal s'il est vide)`
+        break
+      default:
+        phrase = `Tu es né pour être ${query}`
+        break;
     }
-    const factions = [
-        "Bobby", "Elfe", "Nain", "Homme", "Mordor", "Isengard", "Gobelin", "Angmar", "<:gollum:646777565469736960>"
-      ]
-      let best = factions[Math.floor(Math.random() * factions.length)];
-      let phrase;
-      switch (best) {
-        case "Elfe":
-          let elfe = getRandomInt(3)
-          let ElfeFaction;
-          elfe === 2 ? ElfeFaction='Lindon' : elfe === 1 ? ElfeFaction='Lorien' : elfe === 0 ? ElfeFaction='Fondcombe' : ElfeFaction='La Forêt Noire'
-          phrase = `Tu es né pour être un elfe de ${ElfeFaction}`
-          break;
-        case "Homme":
-          let homme = getRandomInt(2)
-          let MenFaction;
-          homme === 1 ? MenFaction='du Gondor' : homme === 0 ? MenFaction="d'Arnor" : MenFaction='du Rohan'
-          phrase = `Tu es né pour être un homme ${MenFaction}`
-          break;
-        case "Nain":
-          phrase = "Tu es né pour être un petit gras barbu"
-          break;
-        case "Arnor":
-          phrase = "Tu es né pour être dans l'Arnor"
-          break
-        default:
-          phrase = `Tu es né pour être ${best}`
-          break;
-      }
 
 		await interaction.reply(phrase);
 	},
