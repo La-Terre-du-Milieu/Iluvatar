@@ -13,8 +13,14 @@ const commandsPath = path.join(__dirname, 'commands');
 const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
 
 client.on("messageCreate", (message) => {
+	console.log(message, "mes")
 	if(message.content == "<:gollum:646777565469736960>") {
 		message.react('646777565469736960');
+	}
+	if(message.channelId == "646687718491029505") {
+		message.react('646777565469736960');
+		message.react('647780678704037949');
+		message.react('860052718529413120');
 	}
   });
 
