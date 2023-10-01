@@ -20,6 +20,9 @@ client.on("messageCreate", (message) => {
 		message.react('646777565469736960');
 		message.react('647780678704037949');
 	}
+
+	message.react('1158072394875928658');
+
   });
 
 for (const file of commandFiles) {
