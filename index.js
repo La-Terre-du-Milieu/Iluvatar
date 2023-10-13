@@ -21,7 +21,11 @@ client.on("messageCreate", (message) => {
 		message.react('647780678704037949');
 	}
 
-	if(message.channelId == "646686225737973773") {
+	if(message.channelId == "646687718491029505") {
+		message.react('1158072394875928658');
+	}
+
+	if(message.channelId == "1000403894083539055") {
 		message.react('1158072394875928658');
 	}
 	
