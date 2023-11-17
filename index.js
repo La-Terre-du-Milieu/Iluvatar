@@ -1,5 +1,6 @@
 const fs = require('node:fs');
 const path = require('node:path');
+const cron = require('node-cron');
 // Require the necessary discord.js classes
 const { Client, Events, GatewayIntentBits, Collection } = require('discord.js');
 require('dotenv').config();
@@ -76,6 +77,40 @@ for (const folder of componentFolders) {
 			break;
 	}
 }
+
+// Fonction pour créer le message de rappel
+function createReminderMessage() {
+	const channel = client.channels.cache.get("1102635610189074542"); // Remplacez "ID_DU_CHANNEL" par l'ID de votre channel
+	if (channel) {
+	  const reminderEmbed = {
+		title: "C'est l'heure de récupérer votre énergie",
+		description: "Vous avez 3 heures !",
+		color: 0xFF5733, // Couleur hexadécimale (facultatif)
+	  };
+	  channel.send({ embeds: [reminderEmbed] });
+	} else {
+	  console.error("Channel introuvable.");
+	}
+  }
+  
+  // Planifier les rappels à 11h, 15h et 20h chaque jour avec cron jobs et le fuseau horaire de la France
+  cron.schedule('0 11 * * *', () => {
+	createReminderMessage();
+  }, {
+	timezone: "Europe/Paris" // Utiliser le fuseau horaire de la France
+  });
+  
+  cron.schedule('0 15 * * *', () => {
+	createReminderMessage();
+  }, {
+	timezone: "Europe/Paris"
+  });
+  
+  cron.schedule('0 20 * * *', () => {
+	createReminderMessage();
+  }, {
+	timezone: "Europe/Paris"
+  });
 
 // Log in to Discord with your client's token
 client.login(process.env.TOKEN);
