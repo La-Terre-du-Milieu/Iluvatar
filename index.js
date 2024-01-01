@@ -1,6 +1,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const cron = require('node-cron');
+const quizCommand = require('./commands/quiz');
 // Require the necessary discord.js classes
 const { Client, Events, GatewayIntentBits, Collection } = require('discord.js');
 require('dotenv').config();
@@ -17,19 +18,13 @@ client.on("messageCreate", (message) => {
 	if(message.content == "<:gollum:646777565469736960>") {
 		message.react('646777565469736960');
 	}
-	if(message.channelId == "646687718491029505") {
-		message.react('646777565469736960');
-		message.react('647780678704037949');
-	}
 
 	if(message.channelId == "646687718491029505") {
-		message.react('🇧🇪');
-		message.react('759764968043577354');
+		message.react('<:gollum:646777565469736960>');
 	}
 
 	if(message.channelId == "1000403894083539055") {
-		message.react('🇧🇪');
-		message.react('759764968043577354');
+		message.react('<:gollum:646777565469736960>');
 	}
 	
   });
@@ -111,6 +106,8 @@ function createReminderMessage() {
   }, {
 	timezone: "Europe/Paris"
   });
+
+client.commands.set(quizCommand.data.name, quizCommand);
 
 // Log in to Discord with your client's token
 client.login(process.env.TOKEN);
